@@ -73,8 +73,8 @@ after upgrades.
 
 ## Installation
 
-1. Copy `atom-s3-bluetooth-proxy.yaml` into your ESPHome configuration directory.
-2. Copy `secrets.yaml.example` to `secrets.yaml`.
+1. Copy [`atom-s3-bluetooth-proxy.yaml`](atom-s3-bluetooth-proxy.yaml) into your ESPHome configuration directory.
+2. Copy [`secrets.yaml.example`](secrets.yaml.example) to `secrets.yaml`.
 3. Fill in your Wi-Fi credentials and ESPHome API/OTA secrets.
 4. Adjust the device name if desired.
 5. Compile and flash the firmware using ESPHome.
@@ -85,7 +85,7 @@ after upgrades.
 
 - This configuration is designed for **long-term stability**.
 - The display is intentionally simple and low-overhead.
-- Bluetooth activity is validated through actual Home Assistant sensor data,
+- Bluetooth proxy operation is validated through Home Assistant device behavior,
   not inferred indicators.
 
 ## Hardware Reference
