@@ -60,6 +60,11 @@ display:
     height: 128
     offset_width: 1
     offset_height: 2
+
+    # Optional display rotation (uncomment if mounting differently)
+    # If changed, text alignment and offsets may need adjustment.
+    # rotation: 180    
+
     cs_pin: GPIO15
     dc_pin: GPIO33
     reset_pin: GPIO34
