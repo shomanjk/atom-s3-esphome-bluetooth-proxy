@@ -43,6 +43,9 @@ The display shows:
 
 The display updates only when relevant state changes occur
 (e.g., Wi-Fi RSSI or ESPHome status).
+- The display rotation option is included (commented) in the YAML for users
+  who mount the Atom S3 in a different orientation.
+
 
 ---
 
