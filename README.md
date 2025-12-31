@@ -73,6 +73,17 @@ atom-s3-esphome-bluetooth-proxy/
 - Bluetooth activity is validated through actual Home Assistant sensor data,
   not inferred indicators.
 
+## Hardware Reference
+
+- M5Stack Atom S3 documentation:  
+  https://docs.m5stack.com/en/core/AtomS3
+
+- ESPHome Bluetooth Proxy docs:  
+  https://esphome.io/components/bluetooth_proxy.html
+
+- ESPHome ST7789 display component:  
+  https://esphome.io/components/display/st7789v.html
+
 ---
 
 ## License
