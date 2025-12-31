@@ -56,6 +56,18 @@ atom-s3-esphome-bluetooth-proxy/
 ```
 ---
 
+## ESPHome Version
+
+This configuration was tested with:
+
+- ESPHome 2025.12.3
+- ESP-IDF framework (default ESPHome platform)
+
+Later versions should work, but display behavior should be verified
+after upgrades.
+
+---
+
 ## Installation
 
 1. Copy `atom-s3-bluetooth-proxy.yaml` into your ESPHome configuration directory.
