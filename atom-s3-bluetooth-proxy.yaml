@@ -3,6 +3,8 @@ substitutions:
   device_name: atom-s3-bluetooth-proxy
   # Human-readable name in Home Assistant and entity-friendly labels
   friendly_name: Atom S3 Bluetooth Proxy
+  # Append last 3 bytes of MAC to esphome.name (set true if you run several units)
+  name_add_mac_suffix: "false"
   # Captive AP when Wi-Fi fails (must match your network policy)
   ap_ssid: Atom-S3-Bluetooth-Proxy
   # Wi-Fi RSSI color thresholds (dBm); stronger signal is less negative
@@ -12,6 +14,8 @@ substitutions:
 esphome:
   name: ${device_name}
   friendly_name: "${friendly_name}"
+  min_version: 2025.8.0
+  name_add_mac_suffix: ${name_add_mac_suffix}
   on_boot:
     priority: -100
     then:
@@ -43,6 +47,19 @@ wifi:
     password: !secret ap_password
 
 captive_portal:
+
+# Required for the safe_mode button (see ESPHome safe_mode component docs).
+safe_mode:
+  id: device_safe_mode
+
+button:
+  - platform: safe_mode
+    id: button_safe_mode
+    name: Safe mode boot
+    safe_mode: device_safe_mode
+  - platform: factory_reset
+    id: button_factory_reset
+    name: Factory reset
 
 font:
   - file: "gfonts://Roboto"
@@ -121,6 +138,32 @@ binary_sensor:
     on_state:
       then:
         - component.update: display_tft
+
+  # Physical user button (GPIO41 on standard Atom S3 with this LCD stack; M5 pin map).
+  - platform: gpio
+    id: atom_button
+    internal: true
+    pin:
+      number: GPIO41
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    filters:
+      - delayed_on: 50ms
+      - delayed_off: 50ms
+    on_multi_click:
+      - timing:
+          - ON for at least 8s
+        then:
+          - button.press: button_factory_reset
+      - timing:
+          - ON for at most 1s
+          - OFF for at least 50ms
+          - ON for at most 1s
+          - OFF for at least 0.2s
+        then:
+          - button.press: button_safe_mode
 
 output:
   - platform: gpio
