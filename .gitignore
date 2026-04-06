@@ -1,0 +1,12 @@
+# Local secrets (never commit)
+secrets.yaml
+
+# ESPHome / build caches
+.esphome/
+
+# PlatformIO / ESP-IDF build outputs (if compiling from a copy of this repo)
+.pio/
+.pioenvs/
+
+# OS / editor noise
+.DS_Store

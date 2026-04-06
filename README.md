@@ -55,6 +55,7 @@ The display updates only when relevant state changes occur
 atom-s3-esphome-bluetooth-proxy/
 ├── atom-s3-bluetooth-proxy.yaml
 ├── secrets.yaml.example
+├── .gitignore
 └── README.md
 ```
 ---
@@ -76,7 +77,7 @@ after upgrades.
 1. Copy [`atom-s3-bluetooth-proxy.yaml`](atom-s3-bluetooth-proxy.yaml) into your ESPHome configuration directory.
 2. Copy [`secrets.yaml.example`](secrets.yaml.example) to `secrets.yaml`.
 3. Fill in your Wi-Fi credentials and ESPHome API/OTA secrets.
-4. Adjust the device name if desired.
+4. Optional: edit the `substitutions` block at the top of the YAML (device name, friendly name, fallback AP SSID, RSSI color thresholds).
 5. Compile and flash the firmware using ESPHome.
 
 ---
@@ -98,9 +99,3 @@ after upgrades.
 
 - ESPHome ST7789 display component:  
   https://esphome.io/components/display/st7789v.html
-
----
-
-## License
-
-MIT
